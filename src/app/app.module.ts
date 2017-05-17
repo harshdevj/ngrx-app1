@@ -5,14 +5,20 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './counter/counter';
+
+import { MyAppComponent } from './counter/my-app.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, MyAppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    StoreModule.provideStore({ counter: counterReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]
